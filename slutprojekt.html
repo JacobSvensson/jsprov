@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="slutprojekt.css">
+</head>
+<body>
+    <!-- Här är alla kanappar med funktioner och stylade i css-->
+    <div class="button-grid">
+        <button onclick="changeBackground('gray')" id = "button1">Change bg</button>
+        <button onclick="changePicture()"id="button2">Change picture</button>
+        <button id="button3">Header</button>
+        <button onclick="goodVibes()"" id="button4">Good Vibes</button>
+        <button onclick="hidePicture()" id="button5">Hide Picture</button>
+        <button id="button6">Remove Header</button>
+        <button onclick="getTime()"id="button6">Time</button>
+        <button onclick="showPicture()"id="button6">Show Picture</button>
+        <button id="button6">Show Header</button>
+    </div>
+
+    <div id="imageDiv">
+        <img src="../image_mapp/1990-Nissan-Skyline-GT-R-Driver-Motorsport-Front-Grill.jpg" height="22%" width="20%" id="My_Picture">
+    </div>
+
+    <h1 id="heading1"></h1>
+    <h1 id="heading2"></h1>
+    
+    <script>
+    //Detta ändrar backgrunden genom den första knappen
+        function changeBackground(color){
+            document.querySelector('body').style.backgroundColor = color;
+        }
+    //Detta gömmer bilden    
+        function hidePicture(){
+            var x = document.getElementById("imageDiv")
+            x.style.display = "none";
+        }
+    //Detta tar fram bilden igen
+        function showPicture(){
+            var x = document.getElementById("imageDiv")
+            x.style.display = "block";
+        }
+    //Denna funktionen byter bild när man trycker på Change Picture knappen
+        function changePicture(){
+            var image = document.getElementById('My_Picture');
+
+            if (image.src.match('../image_mapp/1990-Nissan-Skyline-GT-R-Driver-Motorsport-Front-Grill.jpg')){
+                image.src = '../image_mapp/koenigsegg.jpg'
+            }else {
+                image.src ='../image_mapp/1990-Nissan-Skyline-GT-R-Driver-Motorsport-Front-Grill.jpg'    
+            }
+        }
+
+        function goodVibes(){
+            var displayElement = document.getElementById("heading1");
+            displayElement.textContent = "Live Love Laugh"
+        }
+        
+        function getTime(){
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            var displayElement = document.getElementById('heading2');
+            displayElement.textContent = "Current time: " + hours + ":" + minutes + ":" + seconds;
+        }
+        
+    </script>
+</body>
+
+
+</html>
